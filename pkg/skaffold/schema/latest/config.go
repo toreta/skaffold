@@ -246,6 +246,11 @@ type GoogleCloudBuild struct {
 	// Defaults to `gcr.io/cloud-builders/gradle`.
 	GradleImage string `yaml:"gradleImage,omitempty"`
 
+	// PackImage is the image that runs a Cloud Native Buildpacks build.
+	// See [Cloud Builders](https://cloud.google.com/cloud-build/docs/cloud-builders).
+	// Defaults to `gcr.io/k8s-skaffold/pack`.
+	PackImage string `yaml:"packImage,omitempty"`
+
 	// Concurrency is how many artifacts can be built concurrently. 0 means "no-limit"
 	// Defaults to 0.
 	Concurrency int `yaml:"concurrency,omitempty"`
@@ -273,9 +278,9 @@ type ClusterDetails struct {
 	// PullSecret is the path to the Google Cloud service account secret key file.
 	PullSecret string `yaml:"pullSecret,omitempty"`
 
-	// PullSecretName is the name of the Kubernetes secret for pulling the files
-	// from the build context and pushing the final image. If given, the secret needs to
-	// contain the Google Cloud service account secret key under the key `kaniko-secret`.
+	// PullSecretName is the name of the Kubernetes secret for pulling base images
+	// and pushing the final image. If given, the secret needs to contain the Google Cloud
+	// service account secret key under the key `kaniko-secret`.
 	// Defaults to `kaniko-secret`.
 	PullSecretName string `yaml:"pullSecretName,omitempty"`
 
