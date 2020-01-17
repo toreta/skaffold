@@ -1,0 +1,5 @@
+name: 'customized skaffold (deploy to Google Cloud Run)'
+author: 'Toreta, Inc.'
+runs:
+  using: 'docker'
+  image: 'gcr.io/torata-ds-sandbox/skaffold'
